@@ -1,0 +1,12 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    
+    <hr class="my-5">
+
+    <%- include("./form", { formType: "create", saving: {} }) %>
+
+    <a href="/savings" class="btn btn-link">Back to Savings</a>
+</div>
+
+<%- include("../shared/_footer") %>

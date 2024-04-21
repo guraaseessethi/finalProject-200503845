@@ -1,0 +1,40 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Accounts List</h1>
+    <hr class="my-5">
+
+    <a href="/accounts/new" class="btn btn-success mb-3">Create New Account</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Account Name</th>
+                <th>Account Number</th>
+                <th>Balance</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% accounts.forEach(function(account) { %>
+                <tr>
+                    <td><%= account.name %></td>
+                    <td><%= account.number %></td>
+                    <td>$<%= account.balance.toFixed(2) %></td>
+                    <td><%= account.type %></td>
+                    <td>
+                        <a href="/accounts/<%= account._id %>" class="btn btn-info">View</a>
+                        <a href="/accounts/<%= account._id %>/edit" class="btn btn-primary">Edit</a>
+                        <form action="/accounts/<%= account._id %>" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include("../shared/_footer") %>

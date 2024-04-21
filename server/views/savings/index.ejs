@@ -1,0 +1,36 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Savings List</h1>
+    <hr class="my-5">
+
+    <a href="/savings/new" class="btn btn-success mb-3">Create New Savings</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Balance</th>
+                <th>Goal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% savings.forEach(function(saving) { %>
+                <tr>
+                    <td>$<%= saving.balance.toFixed(2) %></td>
+                    <td>$<%= saving.goal.toFixed(2) %></td>
+                    <td>
+                        <a href="/savings/<%= saving._id %>" class="btn btn-info">View</a>
+                        <a href="/savings/<%= saving._id %>/edit" class="btn btn-primary">Edit</a>
+                        <form action="/savings/<%= saving._id %>" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include("../shared/_footer") %>

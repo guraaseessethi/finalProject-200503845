@@ -1,0 +1,20 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Account Details</h1>
+    <hr class="my-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Account Name: <%= account.name %></h5>
+            <p class="card-text">Account Number: <%= account.number %></p>
+            <p class="card-text">Balance: $<%= account.balance.toFixed(2) %></p>
+            <p class="card-text">Type: <%= account.type %></p>
+        </div>
+    </div>
+
+    <a href="/accounts/<%= account._id %>/edit" class="btn btn-primary">Edit Account</a>
+    <a href="/accounts" class="btn btn-link">Back to Accounts</a>
+</div>
+
+<%- include("../shared/_footer") %>

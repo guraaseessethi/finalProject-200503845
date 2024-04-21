@@ -1,0 +1,18 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Savings Details</h1>
+    <hr class="my-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Balance: $<%= saving.balance.toFixed(2) %></h5>
+            <p class="card-text">Goal: $<%= saving.goal.toFixed(2) %></p>
+        </div>
+    </div>
+
+    <a href="/savings/<%= saving._id %>/edit" class="btn btn-primary">Edit Savings</a>
+    <a href="/savings" class="btn btn-link">Back to Savings</a>
+</div>
+
+<%- include("../shared/_footer") %>

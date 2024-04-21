@@ -1,0 +1,38 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Budgets List</h1>
+    <hr class="my-5">
+
+    <a href="/budgets/new" class="btn btn-success mb-3">Create New Budget</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Allocated</th>
+                <th>Spent</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% budgets.forEach(function(budget) { %>
+                <tr>
+                    <td><%= budget.category %></td>
+                    <td>$<%= budget.allocated.toFixed(2) %></td>
+                    <td>$<%= budget.spent.toFixed(2) %></td>
+                    <td>
+                        <a href="/budgets/<%= budget._id %>" class="btn btn-info">View</a>
+                        <a href="/budgets/<%= budget._id %>/edit" class="btn btn-primary">Edit</a>
+                        <form action="/budgets/<%= budget._id %>" method="post" onsubmit="return confirm('Are you sure?');">
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include("../shared/_footer") %>

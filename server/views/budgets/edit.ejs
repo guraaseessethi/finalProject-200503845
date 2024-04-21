@@ -1,0 +1,13 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1><%= formType === "create" ? "Create New Budget" : "Update Budget" %></h1>
+    <hr class="my-5">
+
+    <!-- Ensure all required variables are included -->
+    <%- include("./form", { formType: formType, budget: budget || {} }) %>
+
+    <a href="/budgets" class="btn btn-link">Back to budgets</a>
+</div>
+
+<%- include("../shared/_footer") %>

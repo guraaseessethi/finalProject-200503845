@@ -1,0 +1,20 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Transaction Details</h1>
+    <hr class="my-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Date: <%= transaction.date.toISOString().split('T')[0] %></h5>
+            <p class="card-text">Amount: $<%= transaction.amount.toFixed(2) %></p>
+            <p class="card-text">Type: <%= transaction.type %></p>
+            <p class="card-text">Description: <%= transaction.description %></p>
+        </div>
+    </div>
+
+    <a href="/transactions/<%= transaction._id %>/edit" class="btn btn-primary">Edit Transaction</a>
+    <a href="/transactions" class="btn btn-link">Back to Transactions</a>
+</div>
+
+<%- include("../shared/_footer") %>

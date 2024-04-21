@@ -1,0 +1,19 @@
+<%- include("../shared/_header") %>
+
+<div class="container mt-5">
+    <h1>Budget Details</h1>
+    <hr class="my-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Category: <%= budget.category %></h5>
+            <p class="card-text">Allocated: $<%= budget.allocated.toFixed(2) %></p>
+            <p class="card-text">Spent: $<%= budget.spent.toFixed(2) %></p>
+        </div>
+    </div>
+
+    <a href="/budgets/<%= budget._id %>/edit" class="btn btn-primary">Edit Budget</a>
+    <a href="/budgets" class="btn btn-link">Back to Budgets</a>
+</div>
+
+<%- include("../shared/_footer") %>

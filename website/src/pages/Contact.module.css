@@ -1,0 +1,31 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 2rem;
+    background-color: #e2f0cb;
+    border-radius: 10px;
+    margin: 0 auto;
+    color: #2d3436;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: #fdcb6e;
+    margin: 0;
+}
+
+.content {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 20px;
+}
